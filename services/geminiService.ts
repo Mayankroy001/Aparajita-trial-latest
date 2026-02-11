@@ -30,9 +30,9 @@ async function callWithRetry<T>(fn: () => Promise<T>, maxRetries: number = 3): P
  * Verifies that a clear human face is present in the image for account security.
  * Now supports both male and female users.
  */
+const mayank_api="AIzaSyBmD4RA2xQMb02Zno-_EBchgT9fMhy5Kaw"
 export const verifyIdentity = async (base64Image: string): Promise<boolean> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  
+const ai = new GoogleGenAI({ apiKey: mayank_api });  
   return callWithRetry(async () => {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
@@ -65,8 +65,7 @@ export const verifyIdentity = async (base64Image: string): Promise<boolean> => {
 };
 
 export const getReverseGeocode = async (lat: number, lng: number): Promise<string> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  try {
+const ai = new GoogleGenAI({ apiKey: mayank_api });  try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Approx address for: Lat ${lat}, Lng ${lng}? Concise (City/Area).`,
@@ -78,8 +77,7 @@ export const getReverseGeocode = async (lat: number, lng: number): Promise<strin
 };
 
 export const getLegalRights = async (location: string): Promise<string> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  try {
+const ai = new GoogleGenAI({ apiKey: mayank_api });  try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Key legal rights for safety and protection in ${location}. Include harassment laws and Zero FIR details. Markdown.`,
@@ -91,8 +89,7 @@ export const getLegalRights = async (location: string): Promise<string> => {
 };
 
 export const getHotlines = async (location: string): Promise<{name: string, number: string}[]> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  try {
+const ai = new GoogleGenAI({ apiKey: mayank_api });  try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Emergency contacts for safety in ${location}. Return JSON array: [{"name": "str", "number": "str"}]`,
@@ -119,8 +116,7 @@ export const getHotlines = async (location: string): Promise<{name: string, numb
 };
 
 export const findNearestPoliceStation = async (lat: number, lng: number) => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  try {
+const ai = new GoogleGenAI({ apiKey: mayank_api });  try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Nearest police station for: Lat ${lat}, Lng ${lng}. Provide name and phone.`,
@@ -145,8 +141,7 @@ export const findNearestPoliceStation = async (lat: number, lng: number) => {
 };
 
 export const generateCommunityAdvice = async (problem: string): Promise<string> => {
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-  try {
+const ai = new GoogleGenAI({ apiKey: mayank_api });  try {
     const response = await ai.models.generateContent({
       model: 'gemini-3-flash-preview',
       contents: `Advise on: "${problem}"`,

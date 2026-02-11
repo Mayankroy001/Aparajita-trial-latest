@@ -30,7 +30,7 @@ async function callWithRetry<T>(fn: () => Promise<T>, maxRetries: number = 3): P
  * Verifies that a clear human face is present in the image for account security.
  * Now supports both male and female users.
  */
-const mayank_api="AIzaSyCA_pzqNDCg2R-8uBcSNLorCU82Etngnp4"
+const mayank_api="AIzaSyBoEqPkZCjnrF7FNfpC0FnZ5aXsDK6Pyy0"
 export const verifyIdentity = async (base64Image: string): Promise<boolean> => {
 const ai = new GoogleGenAI({ apiKey: mayank_api });  
   return callWithRetry(async () => {
